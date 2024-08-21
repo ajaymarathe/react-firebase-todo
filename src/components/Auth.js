@@ -1,43 +1,22 @@
 import React from "react";
-import { useLocation } from "react-router-dom";
+
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faGoogle } from "@fortawesome/free-brands-svg-icons";
 
 function Auth() {
-  const location = useLocation();
-  const isLogin = location.path === "/login";
-
   return (
-    <div className="row justify-content-center">
-      <div className="col-md-6">
-        <h2 className="text-center">{isLogin ? "Login" : "Sign Up"}</h2>
-        <form>
-          <div className="mb-3">
-            <label htmlFor="email" className="form-label">
-              Email
-            </label>
-            <input type="email" className="form-control" id="email" />
-          </div>
-          <div className="mb-3">
-            <label htmlFor="password" className="form-label">
-              Password
-            </label>
-            <input type="password" className="form-control" id="password" />
-          </div>
-          {!isLogin && (
-            <div className="mb-3">
-              <label htmlFor="confirmPassword" className="form-label">
-                Confirm Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="confirmPassword"
-              />
-            </div>
-          )}
-          <button type="submit" className="btn btn-primary w-100">
-            {isLogin ? "Login" : "Sign Up"}
+    <div className="container">
+      <div
+        className="row justify-content-center align-items-center"
+        style={{ height: "90vh" }}
+      >
+        <div className="col-md-6">
+          <h2 className="text-center">Login</h2>
+          <button className="btn btn-danger w-100 mt-3 d-flex align-items-center justify-content-center">
+            <FontAwesomeIcon icon={faGoogle} className="me-3" />
+            Login with Google
           </button>
-        </form>
+        </div>
       </div>
     </div>
   );
